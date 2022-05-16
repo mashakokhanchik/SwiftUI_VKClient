@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E16194C5282FAEDD007DCADF /* SwiftUI_VKClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16194C4282FAEDD007DCADF /* SwiftUI_VKClientApp.swift */; };
-		E16194C7282FAEDD007DCADF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16194C6282FAEDD007DCADF /* ContentView.swift */; };
+		E16194C7282FAEDD007DCADF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16194C6282FAEDD007DCADF /* LoginView.swift */; };
 		E16194C9282FAEE0007DCADF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E16194C8282FAEE0007DCADF /* Assets.xcassets */; };
 		E16194CC282FAEE0007DCADF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E16194CB282FAEE0007DCADF /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		E16194C1282FAEDD007DCADF /* SwiftUI_VKClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_VKClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E16194C4282FAEDD007DCADF /* SwiftUI_VKClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_VKClientApp.swift; sourceTree = "<group>"; };
-		E16194C6282FAEDD007DCADF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E16194C6282FAEDD007DCADF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E16194C8282FAEE0007DCADF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E16194CB282FAEE0007DCADF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -52,7 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				E16194C4282FAEDD007DCADF /* SwiftUI_VKClientApp.swift */,
-				E16194C6282FAEDD007DCADF /* ContentView.swift */,
+				E16194C6282FAEDD007DCADF /* LoginView.swift */,
 				E16194C8282FAEE0007DCADF /* Assets.xcassets */,
 				E16194CA282FAEE0007DCADF /* Preview Content */,
 			);
@@ -137,7 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E16194C7282FAEDD007DCADF /* ContentView.swift in Sources */,
+				E16194C7282FAEDD007DCADF /* LoginView.swift in Sources */,
 				E16194C5282FAEDD007DCADF /* SwiftUI_VKClientApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
