@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E15A374C283FB1AB00385B41 /* SectionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15A374B283FB1AB00385B41 /* SectionDataModel.swift */; };
+		E15BDD59283CD17300572C5C /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15BDD58283CD17300572C5C /* NewsView.swift */; };
+		E15BDD5D283CF30E00572C5C /* FriendPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15BDD5C283CF30E00572C5C /* FriendPhotoView.swift */; };
 		E16194C5282FAEDD007DCADF /* SwiftUI_VKClientApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16194C4282FAEDD007DCADF /* SwiftUI_VKClientApp.swift */; };
 		E16194C7282FAEDD007DCADF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E16194C6282FAEDD007DCADF /* LoginView.swift */; };
 		E16194C9282FAEE0007DCADF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E16194C8282FAEE0007DCADF /* Assets.xcassets */; };
@@ -16,9 +19,14 @@
 		E1E213EA2838D1E9000F3A91 /* GroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E213E92838D1E9000F3A91 /* GroupModel.swift */; };
 		E1E213EE2838D424000F3A91 /* CustomUIStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E213ED2838D424000F3A91 /* CustomUIStyle.swift */; };
 		E1E213F12838DE1B000F3A91 /* GroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E213F02838DE1B000F3A91 /* GroupsView.swift */; };
+		E1E213F4283A1BDA000F3A91 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E213F3283A1BDA000F3A91 /* ContainerView.swift */; };
+		E1E213F6283A2D54000F3A91 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E213F5283A2D54000F3A91 /* MainTabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E15A374B283FB1AB00385B41 /* SectionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionDataModel.swift; sourceTree = "<group>"; };
+		E15BDD58283CD17300572C5C /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; usesTabs = 0; };
+		E15BDD5C283CF30E00572C5C /* FriendPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendPhotoView.swift; sourceTree = "<group>"; };
 		E16194C1282FAEDD007DCADF /* SwiftUI_VKClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUI_VKClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E16194C4282FAEDD007DCADF /* SwiftUI_VKClientApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_VKClientApp.swift; sourceTree = "<group>"; };
 		E16194C6282FAEDD007DCADF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -29,6 +37,8 @@
 		E1E213E92838D1E9000F3A91 /* GroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupModel.swift; sourceTree = "<group>"; };
 		E1E213ED2838D424000F3A91 /* CustomUIStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIStyle.swift; sourceTree = "<group>"; };
 		E1E213F02838DE1B000F3A91 /* GroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsView.swift; sourceTree = "<group>"; };
+		E1E213F3283A1BDA000F3A91 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		E1E213F5283A2D54000F3A91 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +91,7 @@
 			children = (
 				E1E213E328379AC5000F3A91 /* UserModel.swift */,
 				E1E213E92838D1E9000F3A91 /* GroupModel.swift */,
+				E15A374B283FB1AB00385B41 /* SectionDataModel.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -100,6 +111,7 @@
 			children = (
 				E1E213EC2838D370000F3A91 /* CustomUIView */,
 				E1E213EB2838D365000F3A91 /* ScreenView */,
+				E1E213F2283A1BAB000F3A91 /* Navigation */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -117,7 +129,9 @@
 			children = (
 				E16194C6282FAEDD007DCADF /* LoginView.swift */,
 				E1E213E0283794CF000F3A91 /* FriendsView.swift */,
+				E15BDD5C283CF30E00572C5C /* FriendPhotoView.swift */,
 				E1E213F02838DE1B000F3A91 /* GroupsView.swift */,
+				E15BDD58283CD17300572C5C /* NewsView.swift */,
 			);
 			path = ScreenView;
 			sourceTree = "<group>";
@@ -128,6 +142,15 @@
 				E1E213ED2838D424000F3A91 /* CustomUIStyle.swift */,
 			);
 			path = CustomUIView;
+			sourceTree = "<group>";
+		};
+		E1E213F2283A1BAB000F3A91 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				E1E213F3283A1BDA000F3A91 /* ContainerView.swift */,
+				E1E213F5283A2D54000F3A91 /* MainTabBarView.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +169,8 @@
 			dependencies = (
 			);
 			name = SwiftUI_VKClient;
+			packageProductDependencies = (
+			);
 			productName = SwiftUI_VKClient;
 			productReference = E16194C1282FAEDD007DCADF /* SwiftUI_VKClient.app */;
 			productType = "com.apple.product-type.application";
@@ -174,6 +199,8 @@
 				Base,
 			);
 			mainGroup = E16194B8282FAEDD007DCADF;
+			packageReferences = (
+			);
 			productRefGroup = E16194C2282FAEDD007DCADF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -204,6 +231,11 @@
 				E1E213EA2838D1E9000F3A91 /* GroupModel.swift in Sources */,
 				E1E213F12838DE1B000F3A91 /* GroupsView.swift in Sources */,
 				E16194C7282FAEDD007DCADF /* LoginView.swift in Sources */,
+				E15BDD59283CD17300572C5C /* NewsView.swift in Sources */,
+				E15A374C283FB1AB00385B41 /* SectionDataModel.swift in Sources */,
+				E15BDD5D283CF30E00572C5C /* FriendPhotoView.swift in Sources */,
+				E1E213F6283A2D54000F3A91 /* MainTabBarView.swift in Sources */,
+				E1E213F4283A1BDA000F3A91 /* ContainerView.swift in Sources */,
 				E1E213E428379AC5000F3A91 /* UserModel.swift in Sources */,
 				E1E213EE2838D424000F3A91 /* CustomUIStyle.swift in Sources */,
 				E16194C5282FAEDD007DCADF /* SwiftUI_VKClientApp.swift in Sources */,

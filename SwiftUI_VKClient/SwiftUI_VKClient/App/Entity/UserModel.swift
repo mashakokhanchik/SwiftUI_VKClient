@@ -6,17 +6,19 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct UserModel: Identifiable {
     let id = UUID()
     let fullName: String
-    let avatarImage: String 
+    let avatarImage: String
+    let friendPhotos: [String]
 }
 
 let userData = [
-    UserModel(fullName: "Monica Geller", avatarImage: "MAvatar"),
-    UserModel(fullName: "Rashel Green", avatarImage: "RAvatar"),
-    UserModel(fullName: "Joe Tribbiani", avatarImage: "JAvatar"),
-    UserModel(fullName: "Ross Geller", avatarImage: "RoAvatar")
+    UserModel(fullName: "Monica Geller", avatarImage: "MAvatar", friendPhotos: [("M1"), ("M2"), ("M3"), ("M4") ]),
+    UserModel(fullName: "Rashel Green", avatarImage: "RAvatar", friendPhotos: [("R1"), ("R2"), ("R3"), ("R4")]),
+    UserModel(fullName: "Joe Tribbiani", avatarImage: "JAvatar", friendPhotos: [("J1"), ("J2"), ("J3"), ("J4")]),
+    UserModel(fullName: "Ross Geller", avatarImage: "RoAvatar", friendPhotos: [("Ro1"), ("Ro2"), ("Ro3"), ("Ro4")])
     ]
 
