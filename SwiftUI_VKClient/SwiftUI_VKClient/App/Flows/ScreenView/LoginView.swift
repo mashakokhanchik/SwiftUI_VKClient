@@ -15,6 +15,8 @@ struct LoginView: View {
     @State private var login = ""
     @State private var password = ""
     @State private var shouldShowLogo: Bool = true
+    @State private var showIncorrectCredentialsWarning = false
+    @Binding var isUserLoggedIn: Bool
     
     private let keyboardIsOnPublisher = Publishers.Merge(
         NotificationCenter.default.publisher(for: UIResponder.keyboardWillChangeFrameNotification)
@@ -23,6 +25,17 @@ struct LoginView: View {
             .map { _ in false }
     )
         .removeDuplicates()
+    
+    // MARK: - Private methods
+    
+    private func verifyLoginData() {
+        if login == "Admin" && password == "1234" {
+            isUserLoggedIn = true
+        } else {
+            showIncorrectCredentialsWarning = true
+        }
+        password = ""
+    }
     
     // MARK: - Body view
     
@@ -56,7 +69,7 @@ struct LoginView: View {
                     .frame(maxWidth: 300)
                     .padding()
                     
-                    Button(action: { print("Hello") }) {
+                    Button(action: verifyLoginData) {
                         Text("Log in")
                             .frame(maxWidth: 100)
                     }
@@ -72,6 +85,8 @@ struct LoginView: View {
             }
         }
         .onTapGesture { UIApplication.shared.endEditing() }
+        .alert(isPresented: $showIncorrectCredentialsWarning, content: { Alert(title: Text("Error"), message: Text("Incorrect Login/Password was entered")) })
+        // Gradient
         .padding(.horizontal, 50.0)
         .aspectRatio(contentMode: .fill)
         .background(LinearGradient(gradient: Gradient(colors: [.white, .blue]),
@@ -93,7 +108,7 @@ extension UIApplication {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        LoginView()
+        LoginView(isUserLoggedIn: .constant(false))
     }
 }
 

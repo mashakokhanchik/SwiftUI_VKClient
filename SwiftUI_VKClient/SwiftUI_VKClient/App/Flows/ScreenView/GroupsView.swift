@@ -16,15 +16,19 @@ struct GroupsView: View {
     // MARK: - Body view
     
     var body: some View {
-        List(groups) { group in
-            HStack {
-                AvatarImageViewBuilder {
-                    Image(group.groupImage)
-                }
-                TextBuilder {
-                    Text(group.groupName)
+        NavigationView {
+            List(groups.sorted(by: { $0.groupName < $1.groupName})) { group in
+                NavigationLink(destination: GroupsView(groups: groups)) {
+                    AvatarImageViewBuilder {
+                        Image(group.groupImage)
+                    }
+                    TextBuilder {
+                        Text(group.groupName)
+                    }
                 }
             }
+            .navigationTitle("Groups")
+            //Spacer()
         }
     }
     
