@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct SectionDataNodel: Identifiable {
+struct SectionDataModel: Identifiable {
     
     var id: String {
         return letter
@@ -16,8 +16,8 @@ struct SectionDataNodel: Identifiable {
     let letter: String
 }
 
-extension SectionDataNodel: Equatable {
-    static func == (lhs: SectionDataNodel, rhs: SectionDataNodel) -> Bool {
+extension SectionDataModel: Equatable {
+    static func == (lhs: SectionDataModel, rhs: SectionDataModel) -> Bool {
         return lhs.letter == rhs.letter
     }
 }

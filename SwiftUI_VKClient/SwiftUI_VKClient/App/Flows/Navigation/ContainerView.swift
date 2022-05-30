@@ -10,16 +10,22 @@ import SwiftUI
 struct ContainerView: View {
     
     @State private var shouldShowMainView: Bool = false
+    @ObservedObject var session = AppSession.shared
     
     var body: some View {
-        NavigationView {
+        //NavigationView {
             HStack {
-                LoginView(isUserLoggedIn: $shouldShowMainView)
-                NavigationLink(destination: MainTabBarView(), isActive: $shouldShowMainView) {
+                VKLoginWebView()
+                NavigationLink(destination: MainTabBarView(), isActive: $session.isAutorized) {
                     EmptyView()
                 }
+                // Login without a network
+//                LoginView(isUserLoggedIn: $shouldShowMainView)
+//                NavigationLink(destination: MainTabBarView(), isActive: $shouldShowMainView) {
+//                    EmptyView()
+//                }
             }
-        }
+        //}
     }
 }
 

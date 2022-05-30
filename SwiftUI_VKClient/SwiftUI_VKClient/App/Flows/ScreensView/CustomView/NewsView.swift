@@ -21,6 +21,7 @@ struct NewsView: View {
                 Spacer()
             }
             .navigationTitle("News")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 

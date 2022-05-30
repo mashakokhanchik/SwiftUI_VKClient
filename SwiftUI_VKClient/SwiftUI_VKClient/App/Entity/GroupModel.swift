@@ -8,6 +8,7 @@
 import Foundation
 
 struct GroupModel: Identifiable {
+    
     internal init(groupName: String, groupImage: String) {
         self.groupName = groupName
         self.groupImage = groupImage
@@ -16,9 +17,12 @@ struct GroupModel: Identifiable {
     let id = UUID()
     let groupName: String
     let groupImage: String
+
 }
 
-let groupData = [
-    GroupModel(groupName: "Barbados", groupImage: "Barbados"),
-    GroupModel(groupName: "Central Perk", groupImage: "CentralPerk")
-    ]
+// Model without a network
+
+//let groupData = [
+//    GroupModel(groupName: "Barbados", groupImage: "Barbados"),
+//    GroupModel(groupName: "Central Perk", groupImage: "CentralPerk")
+//    ]

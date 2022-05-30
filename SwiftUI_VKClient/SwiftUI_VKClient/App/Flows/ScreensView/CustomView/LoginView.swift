@@ -26,16 +26,7 @@ struct LoginView: View {
     )
         .removeDuplicates()
     
-    // MARK: - Private methods
-    
-    private func verifyLoginData() {
-        if login == "Admin" && password == "1234" {
-            isUserLoggedIn = true
-        } else {
-            showIncorrectCredentialsWarning = true
-        }
-        password = ""
-    }
+
     
     // MARK: - Body view
     
@@ -92,6 +83,17 @@ struct LoginView: View {
         .background(LinearGradient(gradient: Gradient(colors: [.white, .blue]),
                                                         startPoint: .top,
                                                         endPoint: .bottom))
+    }
+    
+    // MARK: - Private methods
+    
+    private func verifyLoginData() {
+        if login == "Admin" && password == "1234" {
+            isUserLoggedIn = true
+        } else {
+            showIncorrectCredentialsWarning = true
+        }
+        password = ""
     }
 
 }

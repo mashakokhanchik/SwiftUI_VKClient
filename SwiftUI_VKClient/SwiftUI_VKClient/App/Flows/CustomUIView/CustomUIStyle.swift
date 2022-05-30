@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 // MARK: - Button style
 
@@ -28,8 +29,8 @@ struct CustomButtonStyle: ButtonStyle {
 
 struct AvatarImageViewBuilder: View {
     
-    var content: Image
-    init(@ViewBuilder content: () -> Image) {
+    var content: WebImage
+    init(@ViewBuilder content: () -> WebImage) {
         self.content = content()
     }
     
@@ -71,10 +72,3 @@ struct CircleShadow: ViewModifier {
     }
     
 }
-
-//struct CustomBackgroundStyle {
-//    func makeBody() {
-//        .padding(.horizontal, 100.0)
-//        .aspectRatio(contentMode: .fill)
-//        .background(LinearGradient(gradient: Gradient(colors: [.white, .blue]), startPoint: .top, endPoint: .bottom))
-//    }
