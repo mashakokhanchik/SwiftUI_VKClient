@@ -14,12 +14,16 @@ protocol PhotosService {
 }
 
 class PhotosServiceRequest: PhotosService {
+    
+    // MARK: - Properties
 
     @ObservedObject var session = AppSession.shared
     
     let baseUrl = "https://api.vk.com/method"
     var parameters: Parameters = [:]
     var request: String?
+    
+    // MARK: - Methods
     
     func getPhotos(userId: Int, completion: @escaping (PhotosResponse) -> ()) {
         let method = "/photos.getAll"

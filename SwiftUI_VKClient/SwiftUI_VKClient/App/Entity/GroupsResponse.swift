@@ -19,9 +19,9 @@ struct WebGroupResponse: Codable {
 struct GroupItems: Codable {
     var id: Int
     var title: String
-    var photo50: String
+    var photo50: String?
     var type: String
-    var membersCount: Int
+    var membersCount: Int?
     
     
     enum CodingKeys: String, CodingKey {

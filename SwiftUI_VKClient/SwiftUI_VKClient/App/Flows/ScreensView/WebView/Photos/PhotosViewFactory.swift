@@ -9,15 +9,21 @@ import Foundation
 
 class PhotosViewFactory: ObservableObject {
     
+    // MARK: - Properties
+    
     let service: PhotosService
     let friend: UserModel
     
     @Published var photos: [String] = []
     
+    // MARK: - Inits
+    
     init(service: PhotosService, friend: UserModel) {
         self.service = service
         self.friend = friend
     }
+    
+    // MARK: - Methods
     
     public func fetch() {
         service.getPhotos(userId: friend.friendPhotos) { [weak self] photos in

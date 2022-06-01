@@ -41,6 +41,7 @@
 		E1EBD9662843B02900C5D8AE /* GroupsViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EBD9652843B02900C5D8AE /* GroupsViewFactory.swift */; };
 		E1EBD9692843B7DE00C5D8AE /* ModelCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E1EBD9672843B7DE00C5D8AE /* ModelCoreData.xcdatamodeld */; };
 		E1EBD96B2843BD3E00C5D8AE /* GroupsWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EBD96A2843BD3E00C5D8AE /* GroupsWebView.swift */; };
+		E1F9033B28477D00009CF250 /* CodingStyleSPM in Frameworks */ = {isa = PBXBuildFile; productRef = E1F9033A28477D00009CF250 /* CodingStyleSPM */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1F9033B28477D00009CF250 /* CodingStyleSPM in Frameworks */,
 				E1EBD963284381C400C5D8AE /* SDWebImageSwiftUI in Frameworks */,
 				E1BCB1152840FD92001A4132 /* Alamofire in Frameworks */,
 			);
@@ -342,6 +344,7 @@
 			packageProductDependencies = (
 				E1BCB1142840FD92001A4132 /* Alamofire */,
 				E1EBD962284381C400C5D8AE /* SDWebImageSwiftUI */,
+				E1F9033A28477D00009CF250 /* CodingStyleSPM */,
 			);
 			productName = SwiftUI_VKClient;
 			productReference = E16194C1282FAEDD007DCADF /* SwiftUI_VKClient.app */;
@@ -374,6 +377,7 @@
 			packageReferences = (
 				E1BCB1132840FD92001A4132 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E1EBD961284381C400C5D8AE /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				E1F9033928477D00009CF250 /* XCRemoteSwiftPackageReference "CodingStyleSPM" */,
 			);
 			productRefGroup = E16194C2282FAEDD007DCADF /* Products */;
 			projectDirPath = "";
@@ -649,6 +653,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		E1F9033928477D00009CF250 /* XCRemoteSwiftPackageReference "CodingStyleSPM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mashakokhanchik/CodingStyleSPM.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -661,6 +673,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E1EBD961284381C400C5D8AE /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		E1F9033A28477D00009CF250 /* CodingStyleSPM */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1F9033928477D00009CF250 /* XCRemoteSwiftPackageReference "CodingStyleSPM" */;
+			productName = CodingStyleSPM;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -15,10 +15,15 @@ protocol FriendsService {
 
 class FriendsServiceRequest: FriendsService {
     
+    // MARK: - Properties
+    
     @ObservedObject var session = AppSession.shared
+    
     let baseUrl = "https://api.vk.com/method"
     var parameters: Parameters = [:]
     var request: String?
+    
+    // MARK: - Methods
     
     func getFriends(completion: @escaping (FriendsResponse?) -> ()) {
         let method = "/friends.get"

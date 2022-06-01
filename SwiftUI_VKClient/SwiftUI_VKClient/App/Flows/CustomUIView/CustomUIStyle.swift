@@ -36,6 +36,7 @@ struct AvatarImageViewBuilder: View {
     
     var body: some View {
         content
+            .resizable()
             .frame(width: 50, height: 50, alignment: .center)
             .modifier(CircleShadow(shadowColor: .blue, shadowRadius: 10))
     }

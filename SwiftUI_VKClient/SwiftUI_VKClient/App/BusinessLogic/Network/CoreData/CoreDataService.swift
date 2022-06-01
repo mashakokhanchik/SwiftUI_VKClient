@@ -10,8 +10,9 @@ import CoreData
 
 class CoreDataService {
     
+    // MARK: - Private properties
+    
     private let modelName: String
-    var context: NSManagedObjectContext { storeContainer.viewContext }
     
     private lazy var storeContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: self.modelName)
@@ -23,6 +24,12 @@ class CoreDataService {
         return container
     }()
     
+    // MARK: - Properties
+    
+    var context: NSManagedObjectContext { storeContainer.viewContext }
+    
+    // MARK: - Inits
+    
     init(modelName: String) {
         self.modelName = modelName
     }
@@ -30,6 +37,8 @@ class CoreDataService {
 //    func saveContext() throws {
 //        guard context.hasChanges else { return }
 //    }
+    
+    // MARK: - Methods
     
     func saveGroup(groupName: String, groupImageUrl: String) {
         let group = Groups(context: storeContainer.viewContext)

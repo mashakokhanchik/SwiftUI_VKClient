@@ -18,11 +18,13 @@ struct GroupsWebView: View {
     
     var body: some View {
         List(viewModel.groups.sorted(by: { $0.fullName < $1.fullName}), id: \.id) { group in
-            AvatarImageViewBuilder {
-                WebImage(url: URL(string: group.avatarImage))
-            }
-            TextBuilder {
-                Text(group.fullName)
+            HStack {
+                AvatarImageViewBuilder {
+                    WebImage(url: URL(string: group.avatarImage))
+                }
+                TextBuilder {
+                    Text(group.fullName)
+                }
             }
         }
         .onAppear { viewModel.chooseLoad() }

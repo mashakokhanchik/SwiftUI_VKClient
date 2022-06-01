@@ -13,7 +13,7 @@ struct ContainerView: View {
     @ObservedObject var session = AppSession.shared
     
     var body: some View {
-        //NavigationView {
+        NavigationView {
             HStack {
                 VKLoginWebView()
                 NavigationLink(destination: MainTabBarView(), isActive: $session.isAutorized) {
@@ -25,7 +25,7 @@ struct ContainerView: View {
 //                    EmptyView()
 //                }
             }
-        //}
+        }
     }
 }
 

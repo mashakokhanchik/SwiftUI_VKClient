@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "codingstylespm",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mashakokhanchik/CodingStyleSPM.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "cb977f30cd4bf063cbed999d132c966203be88f1"
+      }
+    },
+    {
       "identity" : "sdwebimage",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SDWebImage/SDWebImage",

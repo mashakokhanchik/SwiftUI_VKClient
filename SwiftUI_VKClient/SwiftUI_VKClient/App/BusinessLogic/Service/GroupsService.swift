@@ -14,11 +14,16 @@ protocol GroupsService {
 }
 
 class GroupsServiceRequest: GroupsService {
+    
+    // MARK: - Properties
 
     @ObservedObject var session = AppSession.shared
+    
     let baseUrl = "https://api.vk.com/method"
     var parameters: Parameters = [:]
     var request: String?
+    
+    // MARK: - Methods
     
     func getGroups(completion: @escaping (GroupsResponse?) -> ()) {
         let method = "/groups.get"

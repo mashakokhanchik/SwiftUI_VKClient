@@ -22,7 +22,7 @@ struct Items: Codable {
     var lastName: String
     var photo100: String?
     var trackCode: String
-    let onLine: Int?
+    let online: Int?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -30,6 +30,6 @@ struct Items: Codable {
         case lastName = "last_name"
         case photo100 = "photo_100"
         case trackCode = "track_code"
-        case onLine
+        case online
     }
 }

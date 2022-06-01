@@ -10,11 +10,17 @@ import SDWebImageSwiftUI
 
 struct FriendsWebView: View {
     
+    // MARK: - Properties
+    
     @ObservedObject var viewModel: FriendsViewFactory
+    
+    // MARK: - Inits
     
     init(viewModel: FriendsViewFactory) {
         self.viewModel = viewModel
     }
+    
+    // MARK: - Body view
     
     var body: some View {
         List(viewModel.friends.sorted(by: { $0.fullName < $1.fullName}), id: \.id) { friend in
@@ -32,6 +38,8 @@ struct FriendsWebView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 }
+
+// MARK: - Screen content view
 
 struct FriendsWebView_Previews: PreviewProvider {
     static var previews: some View {

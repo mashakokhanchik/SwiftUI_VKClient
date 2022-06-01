@@ -9,12 +9,18 @@ import Foundation
 
 class FriendsViewFactory: ObservableObject {
     
+    // MARK: - Properties
+    
     let service: FriendsService
     @Published var friends: [UserModel] = []
+    
+    // MARK: - Inits
     
     init(service: FriendsService) {
         self.service = service
     }
+    
+    // MARK: - Methods
     
     public func fetch() {
         service.getFriends { [weak self] friends in

@@ -10,14 +10,38 @@ import SDWebImageSwiftUI
 
 struct PhotosWebView: View {
     
+    // MARK: - Properties
+    
     @ObservedObject var viewModel: PhotosViewFactory
+    
+    // MARK: - Inits
     
     init(viewModel: PhotosViewFactory) {
         self.viewModel = viewModel
     }
     
+    // MARK: - Body view
+    
     var body: some View {
         let photosArray = viewModel.photos.chunked(into: 2)
+//        return VStack {
+//                        ScrollView {
+//                            VStack(spacing: 20) {
+//                                ForEach(photosArray.indices, id:\.self) { index in
+//                                    HStack {
+//                                        Spacer()
+//                                        WebImage(url: URL(string: "\(photosArray[index])"))
+//                                            .resizable()
+//                                            .frame(width: 200, height: 200)
+//                                            Spacer()
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+            //.onAppear { viewModel.fetch() }
+            //.navigationTitle("Photos")
+            //.navigationBarTitleDisplayMode(.inline)
 //        return VStack {
 //            ScrollView {
 //                VStack(spacing: 16) {
@@ -46,19 +70,21 @@ struct PhotosWebView: View {
                                         .frame(maxWidth: 200, maxHeight: 200)
                                         .cornerRadius(10)
                                     Spacer()
-                                }
+                                    }
                             }
                         }
                     }
                 }
             }
             .onAppear { viewModel.fetch() }
-//            .navigationTitle("Photos")
-//            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Photos")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
     
 }
+
+// MARK: - Screen content view
 
 //struct PhotosWebView_Previews: PreviewProvider {
 //    static var previews: some View {

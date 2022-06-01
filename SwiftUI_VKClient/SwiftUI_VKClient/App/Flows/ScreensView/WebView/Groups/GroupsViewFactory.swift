@@ -10,14 +10,20 @@ import CoreData
 
 class GroupsViewFactory: ObservableObject {
     
+    // MARK: - Properties
+    
     let service: GroupsService
     let coreDataService: CoreDataService
     @Published var groups: [UserModel] = []
+    
+    // MARK: - Inits
     
     init(service: GroupsService, coreDataService: CoreDataService) {
         self.service = service
         self.coreDataService = coreDataService
     }
+    
+    // MARK: - Methods
     
     public func chooseLoad() {
         let groupsCoreData = coreDataService.getAllGroups()
@@ -47,7 +53,7 @@ class GroupsViewFactory: ObservableObject {
         
         for i in 0...groupsCount - 1 {
             coreDataService.saveGroup(groupName: (groups[i].title),
-                                      groupImageUrl: groups[i].photo50)
+                                      groupImageUrl: (groups[i].photo50!))
         }
         let groupsCoreData = coreDataService.getAllGroups()
         groupsArray = groupsCoreData.map {$0.convertGroupsCoreData() }
