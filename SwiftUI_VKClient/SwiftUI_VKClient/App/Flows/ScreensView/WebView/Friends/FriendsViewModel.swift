@@ -1,5 +1,5 @@
 //
-//  FriendsViewFactory.swift
+//  FriendsViewModel.swift
 //  SwiftUI_VKClient
 //
 //  Created by Мария Коханчик on 29.05.2022.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class FriendsViewFactory: ObservableObject {
+class FriendsViewModel: ObservableObject {
     
     // MARK: - Properties
     
@@ -29,7 +29,7 @@ class FriendsViewFactory: ObservableObject {
         }
     }
     
-    func fillFriendsArray(_ friendsResponse: FriendsResponse) -> [UserModel] {
+    private func fillFriendsArray(_ friendsResponse: FriendsResponse) -> [UserModel] {
         var friendsArray: [UserModel] = []
         let friendsCount = friendsResponse.response.items.count
         let friends = friendsResponse.response.items

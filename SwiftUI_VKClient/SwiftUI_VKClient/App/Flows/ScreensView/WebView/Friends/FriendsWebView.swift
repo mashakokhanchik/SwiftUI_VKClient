@@ -12,11 +12,11 @@ struct FriendsWebView: View {
     
     // MARK: - Properties
     
-    @ObservedObject var viewModel: FriendsViewFactory
+    @ObservedObject var viewModel: FriendsViewModel
     
     // MARK: - Inits
     
-    init(viewModel: FriendsViewFactory) {
+    init(viewModel: FriendsViewModel) {
         self.viewModel = viewModel
     }
     
@@ -24,7 +24,7 @@ struct FriendsWebView: View {
     
     var body: some View {
         List(viewModel.friends.sorted(by: { $0.fullName < $1.fullName}), id: \.id) { friend in
-            NavigationLink(destination: PhotosWebView(viewModel: PhotosViewFactory(service: PhotosServiceRequest(), friend: friend))) {
+            NavigationLink(destination: PhotosWebView(viewModel: PhotosViewModel(service: PhotosServiceRequest(), friend: friend))) {
                 AvatarImageViewBuilder {
                     WebImage(url: URL(string: friend.avatarImage))
                 }
@@ -43,6 +43,6 @@ struct FriendsWebView: View {
 
 struct FriendsWebView_Previews: PreviewProvider {
     static var previews: some View {
-        FriendsWebView(viewModel: FriendsViewFactory(service: FriendsServiceRequest()))
+        FriendsWebView(viewModel: FriendsViewModel(service: FriendsServiceRequest()))
     }
 }

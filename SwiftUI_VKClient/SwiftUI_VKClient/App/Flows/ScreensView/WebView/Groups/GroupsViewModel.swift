@@ -1,5 +1,5 @@
 //
-//  GroupsViewFactory.swift
+//  GroupsViewModel.swift
 //  SwiftUI_VKClient
 //
 //  Created by Мария Коханчик on 29.05.2022.
@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class GroupsViewFactory: ObservableObject {
+class GroupsViewModel: ObservableObject {
     
     // MARK: - Properties
     

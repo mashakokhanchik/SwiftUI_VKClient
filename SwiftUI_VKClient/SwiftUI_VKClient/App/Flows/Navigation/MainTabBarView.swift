@@ -10,12 +10,12 @@ import SwiftUI
 struct MainTabBarView: View {
     var body: some View {
         TabView {
-            FriendsWebView(viewModel: FriendsViewFactory(service: FriendsServiceRequest()))
+            FriendsWebView(viewModel: FriendsViewModel(service: FriendsServiceRequest()))
                 .tabItem {
                     Image(systemName: "person.circle")
                     Text("Friends")
                 }
-            GroupsWebView(viewModel: GroupsViewFactory(service: GroupsServiceRequest(), coreDataService: CoreDataService(modelName: "ModelCoreData")))
+            GroupsWebView(viewModel: GroupsViewModel(service: GroupsServiceRequest(), coreDataService: CoreDataService(modelName: "ModelCoreData")))
                 .tabItem {
                     Image(systemName: "person.3")
                     Text("Groups")

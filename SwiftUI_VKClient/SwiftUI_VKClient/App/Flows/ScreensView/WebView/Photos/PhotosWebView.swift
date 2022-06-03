@@ -12,11 +12,11 @@ struct PhotosWebView: View {
     
     // MARK: - Properties
     
-    @ObservedObject var viewModel: PhotosViewFactory
+    @ObservedObject var viewModel: PhotosViewModel
     
     // MARK: - Inits
     
-    init(viewModel: PhotosViewFactory) {
+    init(viewModel: PhotosViewModel) {
         self.viewModel = viewModel
     }
     

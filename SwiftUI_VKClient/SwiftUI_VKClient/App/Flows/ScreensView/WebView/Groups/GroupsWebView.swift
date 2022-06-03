@@ -10,9 +10,9 @@ import SDWebImageSwiftUI
 
 struct GroupsWebView: View {
     
-    @ObservedObject var viewModel: GroupsViewFactory
+    @ObservedObject var viewModel: GroupsViewModel
     
-    init(viewModel: GroupsViewFactory) {
+    init(viewModel: GroupsViewModel) {
         self.viewModel = viewModel
     }
     
@@ -35,6 +35,6 @@ struct GroupsWebView: View {
 
 struct GroupsWebview_Previews: PreviewProvider {
     static var previews: some View {
-        GroupsWebView(viewModel: GroupsViewFactory(service: GroupsServiceRequest(), coreDataService: CoreDataService(modelName: "ModelCoreData")))
+        GroupsWebView(viewModel: GroupsViewModel(service: GroupsServiceRequest(), coreDataService: CoreDataService(modelName: "ModelCoreData")))
     }
 }
