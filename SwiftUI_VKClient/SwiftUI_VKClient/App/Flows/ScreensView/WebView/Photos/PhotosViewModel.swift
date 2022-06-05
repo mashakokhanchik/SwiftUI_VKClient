@@ -31,7 +31,7 @@ class PhotosViewModel: ObservableObject {
         }
     }
     
-    func fillPhotosArray(_ photosResponse: PhotosResponse) -> [String] {
+    private func fillPhotosArray(_ photosResponse: PhotosResponse) -> [String] {
         var photosArray: [String] = []
         let photosCount = photosResponse.response.items.count
         let photos = photosResponse.response.items

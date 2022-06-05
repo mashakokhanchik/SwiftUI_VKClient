@@ -25,11 +25,38 @@ struct CustomButtonStyle: ButtonStyle {
     
 }
 
+// MARK: - Like button style
+
+struct LikeButton: View {
+    
+    @State private var isLiked = false
+    
+    var body: some View {
+        HStack {
+            ZStack {
+                Image(systemName: "heart.fill")
+                    .scaleEffect(isLiked ? 1.0 : 0.0)
+                Image(systemName: "heart")
+                    .foregroundColor(.red)
+            }
+        }
+        .foregroundColor(isLiked ? .red : .white)
+        .onTapGesture {
+            withAnimation(.easeInOut(duration: 0.25)) {
+                isLiked.toggle()
+            }
+        }
+    }
+}
+
 // MARK: - View builder
 
 struct AvatarImageViewBuilder: View {
     
     var content: WebImage
+    
+    @State private var isScaled = false
+    
     init(@ViewBuilder content: () -> WebImage) {
         self.content = content()
     }
@@ -39,6 +66,15 @@ struct AvatarImageViewBuilder: View {
             .resizable()
             .frame(width: 50, height: 50, alignment: .center)
             .modifier(CircleShadow(shadowColor: .blue, shadowRadius: 10))
+            .scaleEffect(isScaled ? 2.0 : 1.0)
+            .onTapGesture {
+                withAnimation(.spring(response: 0.4,
+                                      dampingFraction: 0.8,
+                                      blendDuration: 0.5)) {
+                    self.isScaled.toggle()
+                }
+                self.isScaled.toggle()
+            }
     }
     
 }

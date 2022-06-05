@@ -46,7 +46,7 @@ class GroupsViewModel: ObservableObject {
         self.groups = groupsCoreData.map { $0.convertGroupsCoreData() }
     }
     
-    func fillGroupsArray(_ groupsResponce: GroupsResponse) -> [UserModel] {
+    private func fillGroupsArray(_ groupsResponce: GroupsResponse) -> [UserModel] {
         var groupsArray: [UserModel] = []
         let groupsCount = groupsResponce.response.items.count
         let groups = groupsResponce.response.items

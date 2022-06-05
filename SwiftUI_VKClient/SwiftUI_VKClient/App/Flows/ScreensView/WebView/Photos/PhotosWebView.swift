@@ -14,6 +14,12 @@ struct PhotosWebView: View {
     
     @ObservedObject var viewModel: PhotosViewModel
     
+    private let columns: [GridItem] = [
+        GridItem.init(.flexible(minimum: 0, maximum: .infinity)),
+        GridItem.init(.flexible(minimum: 0, maximum: .infinity)),
+        GridItem.init(.flexible(minimum: 0, maximum: .infinity))
+    ]
+    
     // MARK: - Inits
     
     init(viewModel: PhotosViewModel) {
@@ -23,7 +29,21 @@ struct PhotosWebView: View {
     // MARK: - Body view
     
     var body: some View {
-        let photosArray = viewModel.photos.chunked(into: 2)
+        let photosArray = viewModel.photos//.chunked(into: 2)
+        return VStack {
+            ScrollView(.vertical) {
+                LazyVGrid(columns: columns, alignment: .center, spacing: 8) {
+                    ForEach(photosArray.indices, id: \.self) { photo in
+                        ZStack(alignment: .bottomTrailing) {
+                            WebImage(url: URL(string: "\(photosArray)"))
+                                .resizable()
+                                .frame(width: 100, height: 100, alignment: .center)
+                        }
+                    }
+                }
+            }
+            .onAppear { viewModel.fetch() }
+        }
 //        return VStack {
 //                        ScrollView {
 //                            VStack(spacing: 20) {
@@ -57,29 +77,33 @@ struct PhotosWebView: View {
 //                    }
 //                }
 //            }
-        return VStack {
-            ScrollView {
-                VStack(spacing: 16) {
-                    ForEach(photosArray.indices, id: \.self) { index1 in
-                        HStack {
-                            ForEach(photosArray[index1].indices, id: \.self) { index2 in
-                                HStack {
-                                    Spacer()
-                                    WebImage(url: URL(string: photosArray[index1][index2]))
-                                        .resizable()
-                                        .frame(maxWidth: 200, maxHeight: 200)
-                                        .cornerRadius(10)
-                                    Spacer()
-                                    }
-                            }
-                        }
-                    }
-                }
-            }
-            .onAppear { viewModel.fetch() }
-            .navigationTitle("Photos")
-            .navigationBarTitleDisplayMode(.inline)
-        }
+//        return VStack {
+//            ScrollView {
+//                VStack(spacing: 16) {
+//                    ForEach(photosArray.indices, id: \.self) { index1 in
+//                        HStack {
+//                            ForEach(photosArray[index1].indices, id: \.self) { index2 in
+//                                HStack {
+//                                    Spacer()
+//                                        ZStack {
+//                                            WebImage(url: URL(string: "\(photosArray[index1][index2])"))
+//                                            .resizable()
+//                                            .frame(maxWidth: 200, maxHeight: 200)
+//                                            .cornerRadius(10)
+//                                        LikeButton()
+//                                            .position(x: 170, y: 170)
+//                                        }
+//                                    Spacer()
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//            .onAppear { viewModel.fetch() }
+//            .navigationTitle("Photos")
+//            .navigationBarTitleDisplayMode(.inline)
+//        }
     }
     
 }
