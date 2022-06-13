@@ -14,7 +14,7 @@ class PhotosViewModel: ObservableObject {
     let service: PhotosService
     let friend: UserModel
     
-    @Published var photos: [String] = []
+    @Published var photos: [PhotosModel] = []
     
     // MARK: - Inits
     
@@ -31,14 +31,14 @@ class PhotosViewModel: ObservableObject {
         }
     }
     
-    private func fillPhotosArray(_ photosResponse: PhotosResponse) -> [String] {
-        var photosArray: [String] = []
+    private func fillPhotosArray(_ photosResponse: PhotosResponse) -> [PhotosModel] {
+        var photosArray: [PhotosModel] = []
         let photosCount = photosResponse.response.items.count
         let photos = photosResponse.response.items
         
         if photosCount > 1 {
             for i in 0...photosCount - 1 {
-                photosArray.append(photos[i].sizes[6].url)
+                photosArray.append(PhotosModel(url: "\(photos[i].sizes[6].url)"))
             }
         }
         return(photosArray)

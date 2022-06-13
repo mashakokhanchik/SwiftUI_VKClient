@@ -9,8 +9,12 @@ import SwiftUI
 
 struct ContainerView: View {
     
+    // MARK: - Properties
+    
     @State private var shouldShowMainView: Bool = false
     @ObservedObject var session = AppSession.shared
+    
+    // MARK: - Body view
     
     var body: some View {
         NavigationView {
@@ -28,6 +32,8 @@ struct ContainerView: View {
         }
     }
 }
+
+// MARK: - Screen content view
 
 struct ContainerView_Previews: PreviewProvider {
     static var previews: some View {
