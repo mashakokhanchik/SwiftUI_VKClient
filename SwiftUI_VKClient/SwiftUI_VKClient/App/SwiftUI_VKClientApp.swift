@@ -11,7 +11,8 @@ import SwiftUI
 struct SwiftUI_VKClientApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContainerView()
+            //LoginView(isUserLoggedIn: .constant(false))
         }
     }
 }
