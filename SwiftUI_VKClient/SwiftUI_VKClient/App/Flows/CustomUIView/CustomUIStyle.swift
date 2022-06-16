@@ -14,8 +14,7 @@ struct CustomButtonStyle: ButtonStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .padding(.top, 10)
-            .padding(.bottom, 10)
+            .padding([.top, .bottom], 10)
             .background(.blue)
             .foregroundColor(.black)
             .clipShape(Capsule())

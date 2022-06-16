@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MainTabBarView: View {
+    
+    // MARK: - Body view
+    
     var body: some View {
         TabView {
             FriendsWebView(viewModel: FriendsViewModel(service: FriendsServiceRequest()))
@@ -29,6 +32,8 @@ struct MainTabBarView: View {
     }
 
 }
+
+// MARK: - Screen content view
 
 struct MainTabBarView_Previews: PreviewProvider {
     static var previews: some View {

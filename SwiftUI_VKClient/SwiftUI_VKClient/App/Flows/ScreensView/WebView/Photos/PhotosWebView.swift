@@ -16,9 +16,11 @@ struct PhotosWebView: View {
     
     private let columns: [GridItem] = [
         GridItem.init(.flexible(minimum: 0, maximum: .infinity)),
-        GridItem.init(.flexible(minimum: 0, maximum: .infinity)),
         GridItem.init(.flexible(minimum: 0, maximum: .infinity))
     ]
+    
+    @State private var photoRowHeight: CGFloat? = nil
+    @State private var selection: Int? = nil
     
     // MARK: - Inits
     
@@ -29,97 +31,26 @@ struct PhotosWebView: View {
     // MARK: - Body view
     
     var body: some View {
-        let photosArray = viewModel.photos//.chunked(into: 2)
-        return VStack {
+        GeometryReader { geometry in
             ScrollView(.vertical) {
-                LazyVGrid(columns: columns, alignment: .center, spacing: 8) {
-                    ForEach(photosArray.indices, id: \.self) { photo in
-                        ZStack(alignment: .bottomTrailing) {
-                            WebImage(url: URL(string: "\(photosArray)"))
-                                .resizable()
-                                .frame(width: 100, height: 100, alignment: .center)
-                        }
+                LazyVGrid(columns: columns, alignment: .center, spacing: 16) {
+                    ForEach(viewModel.photos) { photo in
+                        PhotosViewCell(photos: photo, index: viewModel.photos.firstIndex(of: photo), selection: $selection)
+                                .frame(height: photoRowHeight)
                     }
                 }
             }
-            .onAppear { viewModel.fetch() }
         }
-//        return VStack {
-//                        ScrollView {
-//                            VStack(spacing: 20) {
-//                                ForEach(photosArray.indices, id:\.self) { index in
-//                                    HStack {
-//                                        Spacer()
-//                                        WebImage(url: URL(string: "\(photosArray[index])"))
-//                                            .resizable()
-//                                            .frame(width: 200, height: 200)
-//                                            Spacer()
-//                                    }
-//                                }
-//                            }
-//                        }
-//                    }
-            //.onAppear { viewModel.fetch() }
-            //.navigationTitle("Photos")
-            //.navigationBarTitleDisplayMode(.inline)
-//        return VStack {
-//            ScrollView {
-//                VStack(spacing: 16) {
-//                    ForEach(photosArray.indices, id: \.self) { index in
-//                        HStack {
-//                            Spacer()
-//                            WebImage(url: URL(string: (photosArray[index])))
-//                                .resizable()
-//                                .frame(width: 200, height: 200)
-//                                .cornerRadius(10)
-//                            Spacer()
-//                        }
-//                    }
-//                }
-//            }
-//        return VStack {
-//            ScrollView {
-//                VStack(spacing: 16) {
-//                    ForEach(photosArray.indices, id: \.self) { index1 in
-//                        HStack {
-//                            ForEach(photosArray[index1].indices, id: \.self) { index2 in
-//                                HStack {
-//                                    Spacer()
-//                                        ZStack {
-//                                            WebImage(url: URL(string: "\(photosArray[index1][index2])"))
-//                                            .resizable()
-//                                            .frame(maxWidth: 200, maxHeight: 200)
-//                                            .cornerRadius(10)
-//                                        LikeButton()
-//                                            .position(x: 170, y: 170)
-//                                        }
-//                                    Spacer()
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//            .onAppear { viewModel.fetch() }
-//            .navigationTitle("Photos")
-//            .navigationBarTitleDisplayMode(.inline)
-//        }
+        .onAppear { viewModel.fetch() }
+        .onPreferenceChange(PhotosHeightPreferenceKey.self) { height in
+            photoRowHeight = height
+        }
+        .overlayPreferenceValue(PhotosSelectionPreferenceKey.self) {
+            PhotosSelectionRectangleView(anchor: $0)
+        }
     }
     
 }
 
-// MARK: - Screen content view
 
-//struct PhotosWebView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        PhotosWebView(viewModel: PhotosViewFactory(service: PhotosServiceRequest(), friend: <#UserModel#>))
-//    }
-//}
 
-extension Array {
-    func chunked(into size: Int) -> [[Element]] {
-        return stride(from: 0, to: count, by: size).map {
-            Array(self[$0 ..< Swift.min($0 + size, count)])
-        }
-    }
-}

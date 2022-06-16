@@ -35,6 +35,7 @@ struct GroupsWebView: View {
 
 struct GroupsWebview_Previews: PreviewProvider {
     static var previews: some View {
-        GroupsWebView(viewModel: GroupsViewModel(service: GroupsServiceRequest(), coreDataService: CoreDataService(modelName: "ModelCoreData")))
+        GroupsWebView(viewModel: GroupsViewModel(service: GroupsServiceRequest(),
+                                                 coreDataService: CoreDataService(modelName: "ModelCoreData")))
     }
 }
