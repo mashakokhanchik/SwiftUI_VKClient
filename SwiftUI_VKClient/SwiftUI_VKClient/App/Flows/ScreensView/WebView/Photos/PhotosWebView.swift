@@ -34,11 +34,9 @@ struct PhotosWebView: View {
         GeometryReader { geometry in
             ScrollView(.vertical) {
                 LazyVGrid(columns: columns, alignment: .center, spacing: 16) {
-                    if let photosArray = viewModel.photos {
-                        ForEach(photosArray) { photo in
-                            PhotosViewCell(photos: photo, index: photosArray.firstIndex(of: photo), selection: $selection)
+                    ForEach(viewModel.photos) { photo in
+                        PhotosViewCell(photos: photo, index: viewModel.photos.firstIndex(of: photo), selection: $selection)
                                 .frame(height: photoRowHeight)
-                        }
                     }
                 }
             }
